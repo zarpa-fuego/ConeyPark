@@ -1,2 +1,2 @@
 # ------Proyecto Coney Park------
-# Bienvenido
+# Bienvenido usuario al coney park
