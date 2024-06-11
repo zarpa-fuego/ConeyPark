@@ -1,5 +1,3 @@
-import java.time.LocalDate;
-import java.time.Period;
 import java.util.Scanner;
 public class Recarga_tarjeta {
     public String codigos_tarjeta() {
@@ -24,49 +22,48 @@ public class Recarga_tarjeta {
         recargatarjeta.codigos_tarjeta();
     }
 
-    public static class datos_usuario {
-
-        public void datosUsuario() {
-            Scanner usuario = new Scanner(System.in);
-            String opcion;
-            int monto = 0;
-            System.out.println("¿Quiere ver su saldo de su tarjeta?");
-            System.out.println("Si/No");
-            opcion = usuario.nextLine();
-            switch (opcion){
-
-            }
-            String nombre, apellido,numerot,correo, datos;
-            int año, mes, dia;
-            System.out.println("Introduzca sus datos:");
-            datos = usuario.nextLine();
-            System.out.println("Ingrese su nombre: ");
-            nombre = usuario.nextLine();
-            System.out.println("Ingrese su apellido: ");
-            apellido = usuario.nextLine();
-            System.out.println("Ingrese su numero telefonico");
-            numerot = usuario.nextLine();
-            System.out.println("Ingrese su correo");
-            correo = usuario.nextLine();
-            System.out.println("Ingrese el día de su nacimiento (DD): ");
-            dia = usuario.nextInt();
-            System.out.println("Ingrese el mes de su nacimiento (MM): ");
-            mes = usuario.nextInt();
-            System.out.println("Ingrese el año de su nacimiento (YYYY): ");
-            año = usuario.nextInt();
-            LocalDate fechaNacimiento = LocalDate.of(año, mes, dia);
-            LocalDate fechaActual = LocalDate.now();
-            int edad = Period.between(fechaNacimiento, fechaActual).getYears();
-            if (edad >= 18) {
-                System.out.println("Proceda a llenar sus datos");
-            } else {
-                System.out.println("Lo siento, debe ser mayor de edad para ingresar.");
-            }
-
+    public static void datos_usuario() {
+        Scanner usuario = new Scanner(System.in);
+        String opcion;
+        double monto;
+        System.out.println("¿Quiere recargar su saldo de su tarjeta?");
+        System.out.println("Si/No");
+        opcion = usuario.nextLine();
+        switch (opcion){
+            case "Si":
+                double saldo1 = 5.00;
+                double saldo2 = 10.00;
+                double saldo3 = 15.00;
+                System.out.println("Elija sus opciones de compra");
+                System.out.println("1. 5.00");
+                System.out.println("2. 10.00");
+                System.out.println("3. 15.00");
+                opcion = usuario.nextLine();
+                switch (opcion){
+                    case "1":
+                        monto = saldo1 * 2;
+                        System.out.println("Su monto es: "+monto);
+                        break;
+                    case "2":
+                        monto = saldo2 * 2;
+                        System.out.println("Su monto es: "+monto);
+                        break;
+                    case "3":
+                        monto = saldo3 * 2;
+                        System.out.println("Su monto es: "+monto);
+                        break;
+                    default:
+                        System.out.println("Opción inválida");
+                        break;
+                }
+                break;
+            case "No":
+                System.out.println("Gracias por visitarnos");
+                break;
+            default:
+                System.out.println("Opción inválida");
+                break;
         }
-        public void main(String[] args) {
-            datos_usuario datosusuario =new datos_usuario();
-            datosusuario.datosUsuario();
-        }
+        usuario.close();
     }
 }
